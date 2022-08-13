@@ -1,6 +1,8 @@
 # Pythons dynamic array data type
 #Lists are very similar to tuples but they are mutable I.E. changeable
 #they can contain str, float, int, other lists, and tuples
+
+
 list = ['hello world!', 1.3, 10, (9,7), [1,2]]
 print(list)
 print()
