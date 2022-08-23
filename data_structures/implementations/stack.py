@@ -45,3 +45,28 @@ had already created to do that for me. So, lesson here is make it easy on yourse
 tools you already have available. '''
 
 # 2. write a function that checks if parantheses are balanced or not
+def is_match(char1, char2): 
+    '''function to map matches to each other stored in reverse because you will later check the 
+    closing paranthesis against a stack.pop()value to see if they are balanced.'''
+    match_dictionary = {')':'(',  
+                        '}':'{',
+                        ']':'['
+    }
+    return match_dictionary[char1] == char2
+
+def is_balanced(s):
+    stack = Stack()
+    for char in s: # iterate through the string
+        if char == '(' or char =='[' or char == '{': 
+            stack.push(char) # add opening paranthesis to the stack
+        if char ==')' or char == ']' or char== '}':
+            if stack.size()==0: # if get a closing paranthesis and have an empty stack then False
+                return False
+            # if closing paranthesis is not match with last item added to stack then return False
+            if not is_match(char,stack.pop()): 
+                return False
+    return stack.size()==0 # will only return true if stack is empty at the end of the iteration.
+    # time complexity is O(n) with n being the size of the string.
+
+print(is_balanced("({[fdas]})")) #True
+print(is_balanced("(]sdfhklj")) #False

@@ -29,7 +29,7 @@ price_queue.enqueue({
     'company': 'AAPL',
     'timestamp': '08/16/2022 8:50 AM',
     'price': '175'
-    })
+    }, {'company': 'MSFT'})
 
 print(price_queue.dequeue()) # prints out the above info for AAPL stock when executed
 
